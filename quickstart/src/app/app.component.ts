@@ -1,11 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'my-app',
-//   template: `<h1>Hello {{name}}</h1>`,
-// })
-// export class AppComponent  { name = 'Angular'; }
-
 
 import { Component } from '@angular/core';
 import { Hero } from './hero';
@@ -22,13 +14,9 @@ import { Hero } from './hero';
     </ul>
     <p *ngIf="heroes.length > 3">There are many heroes!</p>
     <button (click)="onClickMe()">Click me!</button>
+    {{ clickMessage }}
     `
 })
-// export class AppComponent {
-//   title = 'Tour of Heroes';
-//   myHero = 'Windstorm';
-// }
-
 
 export class AppComponent {
   title = 'Tour of Heroes';
@@ -38,15 +26,10 @@ export class AppComponent {
   new Hero(15, 'Magneta'),
   new Hero(20, 'Tornado')
 ];
+  clickMessage = '';
+
+    onClickMe() {
+      this.clickMessage = 'You are my hero!';
+    }
   myHero = this.heroes[0];
 }
-
-
-
-// heroes = [
-//   new Hero(1, 'Windstorm'),
-//   new Hero(13, 'Bombasto'),
-//   new Hero(15, 'Magneta'),
-//   new Hero(20, 'Tornado')
-// ];
-// myHero = this.heroes[0];
