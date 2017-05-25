@@ -15,6 +15,8 @@ import { Hero } from './hero';
     <p *ngIf="heroes.length > 3">There are many heroes!</p>
     <button (click)="onClickMe()">Click me!</button>
     {{ clickMessage }}
+    <input (keyup)="onKey($event)">
+    <p>{{ values }}</p>
     `
 })
 
@@ -31,5 +33,12 @@ export class AppComponent {
     onClickMe() {
       this.clickMessage = 'You are my hero!';
     }
+
+  values = '';
+
+
+  onKey(event: KeyboardEvent) { // with type info
+    this.values += (<HTMLInputElement>event.target).value + ' | ';
+  }
   myHero = this.heroes[0];
 }
