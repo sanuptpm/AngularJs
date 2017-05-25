@@ -17,6 +17,10 @@ import { Hero } from './hero';
     {{ clickMessage }}
     <input (keyup)="onKey($event)">
     <p>{{ values }}</p>
+
+
+    <input #box (keyup.enter)="onEnter(box.value)">
+    <p>{{box.value}}</p>
     `
 })
 
@@ -34,11 +38,8 @@ export class AppComponent {
       this.clickMessage = 'You are my hero!';
     }
 
-  values = '';
-
-
-  onKey(event: KeyboardEvent) { // with type info
-    this.values += (<HTMLInputElement>event.target).value + ' | ';
-  }
+  value = '';
+  onEnter(value: string) { this.value = value; }
+  
   myHero = this.heroes[0];
 }
