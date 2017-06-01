@@ -11,7 +11,6 @@ import { Hero } from './hero';
     <button (click)="addHero(newHero.value)">Add</button>
 
     <ul><li *ngFor="let hero of heroes">{{hero}}</li></ul>
-
     `
 })
 
