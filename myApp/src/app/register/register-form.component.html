@@ -1,0 +1,43 @@
+<div class="col-md-6 col-md-offset-3">
+    <h1>Registration Form</h1>
+    <form (ngSubmit)="onSubmit()" #RegistrationForm="ngForm">
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstname" name="firstName">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="model.lastname" name="lastName">
+        </div>
+        <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" class="form-control" id="UserName" [(ngModel)]="model.username" name="userName">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="model.password" name="password">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="!RegistrationForm.form.valid">Submit</button>
+        <!--<img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==">-->
+        <a routerLink="/login" class="btn btn-link">Cancel</a>
+        <button (click)="useroDetail()">User Details</button>
+
+        <div [hidden]="!submitted">
+            <h2>You submitted the following:</h2>
+            <div class="row" class="form-group">
+                <div class="col-xs-3">First Name</div>
+                <div class="col-xs-9  pull-left">{{ model.firstname }}</div>
+            </div>
+            <div class="row" class="form-group">
+                <div class="col-xs-3">Last Name</div>
+                <div class="col-xs-9  pull-left">{{ model.lastname }}</div>
+            </div>
+            <div class="row" class="form-group">
+                <div class="col-xs-3">User Name</div>
+                <div class="col-xs-9  pull-left">{{ model.username }}</div>
+            </div>
+        </div>
+    </form>
+</div>
